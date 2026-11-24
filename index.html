@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edzymon Waga — Student Projects</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <button class="brand" data-go="home" aria-label="Go to home">Edzymon Waga</button>
+    <nav aria-label="Main">
+      <ul>
+        <li><button data-go="home">Home</button></li>
+        <li><button data-go="convert">Conversion</button></li>
+        <li><button data-go="tax">Income Tax</button></li>
+        <li><button data-go="loops">Loops</button></li>
+        <li><button data-go="payroll">Payroll</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- HOME -->
+<section class="view" id="view-home" aria-labelledby="home-title">
+  <div class="glass intro">
+    <p class="hi">Hello!</p>
+    <h1 id="home-title">Edzymon Waga</h1>
+    <p class="role">1st Year Computer Science · Ateneo de Davao University</p>
+    <p class="bio">Hello! I am Edzymon Waga, a 1st Year Computer Science student studying at Ateneo de Davao University. I am currently 18 years old and I aspire to be a Software Engineer at one of the major technology companies.</p>
+  </div>
+
+  <div class="sec">
+    <h2>Hobbies</h2>
+    <ul class="tags">
+      <li>Graphic Design</li><li>UI/UX Designing</li><li>Basic Web Designing</li><li>HTML &amp; CSS</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>Projects</h2>
+    <div class="cards">
+      <button class="glass card" data-go="convert">
+        <span class="icon" aria-hidden="true">°F</span>
+        <h3>Conversion Calculator</h3>
+        <span class="muted">Convert temperature and length: °C, °F, meters and feet.</span>
+        <span class="go">Open Project</span>
+      </button>
+      <button class="glass card" data-go="tax">
+        <span class="icon" aria-hidden="true">₱</span>
+        <h3>Income Tax Calculator</h3>
+        <span class="muted">Compute Philippine income tax with a full bracket breakdown.</span>
+        <span class="go">Open Project</span>
+      </button>
+      <button class="glass card" data-go="loops">
+        <span class="icon" aria-hidden="true">Σ</span>
+        <h3>Loops &amp; Number Operations</h3>
+        <span class="muted">Factorial, sum, and average using while, do-while, and for loops.</span>
+        <span class="go">Open Project</span>
+      </button>
+      <button class="glass card" data-go="payroll">
+        <span class="icon" aria-hidden="true">☰</span>
+        <h3>Simple Payroll System</h3>
+        <span class="muted">Add employees, view payroll records, and delete entries.</span>
+        <span class="go">Open Project</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CONVERSION -->
+<section class="view" id="view-convert" aria-labelledby="convert-title" hidden>
+  <div class="crumbs"><button data-go="home">Home</button><span aria-hidden="true">/</span><span>Conversion Calculator</span></div>
+  <div class="page-head"><h1 id="convert-title">Conversion Calculator</h1><p class="muted">Choose a conversion, enter a value, and convert.</p></div>
+  <div class="panel" style="max-width:520px">
+    <div class="field"><label for="cv-type">Conversion</label>
+      <select id="cv-type">
+        <option value="c2f">Celsius to Fahrenheit</option>
+        <option value="f2c">Fahrenheit to Celsius</option>
+        <option value="m2ft">Meters to Feet</option>
+        <option value="ft2m">Feet to Meters</option>
+      </select></div>
+    <div class="field"><label for="cv-in" id="cv-label">Value in °C</label>
+      <input id="cv-in" type="number" step="any" inputmode="decimal" aria-describedby="cv-msg"></div>
+    <div class="row">
+      <button class="btn primary" id="cv-go">Convert</button>
+      <button class="btn" id="cv-swap" title="Swap conversion direction">Swap direction</button>
+    </div>
+    <div class="msg" id="cv-msg" role="alert"></div>
+    <div class="result" id="cv-out" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- TAX -->
+<section class="view" id="view-tax" aria-labelledby="tax-title" hidden>
+  <div class="crumbs"><button data-go="home">Home</button><span aria-hidden="true">/</span><span>Income Tax Calculator</span></div>
+  <div class="page-head"><h1 id="tax-title">Income Tax Calculator</h1><p class="muted">Enter your net taxable income to see the tax due and how it was computed.</p></div>
+  <div class="two">
+    <div class="panel">
+      <div class="field"><label for="tx-in">Net taxable income (₱)</label>
+        <input id="tx-in" type="number" step="any" min="0" inputmode="decimal" aria-describedby="tx-msg"></div>
+      <button class="btn primary" id="tx-go">Compute tax</button>
+      <div class="msg" id="tx-msg" role="alert"></div>
+      <div class="result" id="tx-out" aria-live="polite"></div>
+    </div>
+    <div class="table-wrap" style="align-self:start"><table style="min-width:0">
+      <caption class="muted" style="padding:12px 14px;text-align:left">Tax brackets</caption>
+      <thead><tr><th>Net taxable income</th><th>Tax</th></tr></thead>
+      <tbody>
+        <tr><td>₱250,000 and below</td><td>0%</td></tr>
+        <tr><td>₱250,000 – ₱400,000</td><td>20% of excess</td></tr>
+        <tr><td>₱400,000 – ₱800,000</td><td>₱30,000 + 25%</td></tr>
+        <tr><td>₱800,000 – ₱2,000,000</td><td>₱130,000 + 30%</td></tr>
+        <tr><td>₱2,000,000 – ₱8,000,000</td><td>₱490,000 + 32%</td></tr>
+        <tr><td>Over ₱8,000,000</td><td>₱2,410,000 + 35%</td></tr>
+      </tbody></table></div>
+  </div>
+</section>
+
+<!-- LOOPS -->
+<section class="view" id="view-loops" aria-labelledby="loops-title" hidden>
+  <div class="crumbs"><button data-go="home">Home</button><span aria-hidden="true">/</span><span>Loops &amp; Number Operations</span></div>
+  <div class="page-head"><h1 id="loops-title">Loops &amp; Number Operations</h1><p class="muted">Three calculators, each built on a different kind of loop.</p></div>
+  <div class="stack">
+    <div class="panel">
+      <h2>Factorial <span class="muted" style="font-weight:400">— while loop</span></h2>
+      <div class="field" style="margin-top:14px;max-width:320px"><label for="f-in">Enter N (0 to 20)</label><input id="f-in" type="number" step="1" min="0" aria-describedby="f-msg"></div>
+      <button class="btn primary" id="f-go">Calculate factorial</button>
+      <div class="msg" id="f-msg" role="alert"></div><div class="result" id="f-out" aria-live="polite"></div>
+    </div>
+    <div class="panel">
+      <h2>Sum <span class="muted" style="font-weight:400">— do-while loop</span></h2>
+      <div class="field" style="margin-top:14px;max-width:320px"><label for="s-in">Enter N (1 to 100,000)</label><input id="s-in" type="number" step="1" min="1" aria-describedby="s-msg"></div>
+      <button class="btn primary" id="s-go">Calculate sum</button>
+      <div class="msg" id="s-msg" role="alert"></div><div class="result" id="s-out" aria-live="polite"></div>
+    </div>
+    <div class="panel">
+      <h2>Average <span class="muted" style="font-weight:400">— for loop</span></h2>
+      <div class="field" style="margin-top:14px;max-width:320px"><label for="a-in">Enter N (1 to 100,000)</label><input id="a-in" type="number" step="1" min="1" aria-describedby="a-msg"></div>
+      <button class="btn primary" id="a-go">Calculate average</button>
+      <div class="msg" id="a-msg" role="alert"></div><div class="result" id="a-out" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYROLL -->
+<section class="view" id="view-payroll" aria-labelledby="pay-title" hidden>
+  <div class="crumbs"><button data-go="home">Home</button><span aria-hidden="true">/</span><span>Simple Payroll System</span></div>
+  <div class="page-head"><h1 id="pay-title">Simple Payroll System</h1><p class="muted">Add employees to build your payroll records.</p></div>
+  <div class="stack">
+    <div class="summary" aria-live="polite">
+      <div class="stat"><span>Total employees</span><strong id="sm-n">0</strong></div>
+      <div class="stat"><span>Total gross pay</span><strong id="sm-g">₱0.00</strong></div>
+      <div class="stat"><span>Total deductions</span><strong id="sm-d">₱0.00</strong></div>
+      <div class="stat"><span>Total net pay</span><strong id="sm-net">₱0.00</strong></div>
+    </div>
+    <div class="panel">
+      <h2 style="margin-bottom:14px">Add employee</h2>
+      <div class="two">
+        <div class="field"><label for="p-name">Employee name</label><input id="p-name" type="text" autocomplete="off"></div>
+        <div class="field"><label for="p-days">Days worked</label><input id="p-days" type="number" step="any" min="0"></div>
+        <div class="field"><label for="p-rate">Daily rate (₱)</label><input id="p-rate" type="number" step="any" min="0"></div>
+        <div class="field"><label for="p-ded">Deduction amount (₱)</label><input id="p-ded" type="number" step="any" min="0"></div>
+      </div>
+      <button class="btn primary" id="p-add">Add employee</button>
+      <div class="msg" id="p-msg" role="alert"></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>No.</th><th>Employee Name</th><th>Days Worked</th><th>Daily Rate</th><th>Gross Pay</th><th>Deduction Amount</th><th>Net Pay</th></tr></thead>
+        <tbody id="p-body"></tbody>
+      </table>
+      <div class="empty" id="p-empty">No employees yet. Add one above to see payroll records.</div>
+    </div>
+    <div class="panel" style="max-width:420px">
+      <h2 style="margin-bottom:14px">Delete employee</h2>
+      <div class="field"><label for="p-del">Line number</label><input id="p-del" type="number" step="1" min="1"></div>
+      <button class="btn danger" id="p-delgo">Delete employee</button>
+      <div class="msg" id="p-delmsg" role="alert"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
